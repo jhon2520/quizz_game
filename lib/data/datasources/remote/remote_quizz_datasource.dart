@@ -14,7 +14,10 @@ class RemoteQuizzDataSourceImpl extends RemoteApiBase implements RemoteQuizzData
   Future<RemoteResultApi<ResponseQuizzModelDomain>> getQuestions() {
     return getApi("opentdb.com", "/api.php", (value) {
       return ResponseQuizzModelDomain.fromRawJson(value);
-    },);
+    }, queryParameters: {
+      "amount":"50",
+      "category":"10"
+    });
   }
 
 }

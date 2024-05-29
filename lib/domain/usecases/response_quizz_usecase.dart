@@ -8,9 +8,9 @@ class ResponseQuizzUsecase{
 
   ResponseQuizzUsecase(this._quizzRepository);
 
-  Future<RemoteResultApi<ResponseQuizzModelDomain>> getQuestions(){
+  Future<RemoteResultApi<ResponseQuizzModelDomain>> getQuestions(){ 
     return _quizzRepository.getQuestions();
   }
 
 
-}
+}   

@@ -26,6 +26,7 @@ class RemoteApiBase {
           headers: headers,
         )
         .timeout(AppStrings.apiTimeOut);
+      
     return _manageResponse(response, mapper);
   }
 
@@ -63,9 +64,9 @@ class RemoteApiBase {
 void _logResponse(http.Response response) {
   final data = json.decode(response.body);
   final prettyBody = const JsonEncoder.withIndent(" ").convert(data);
-  log(response.request!.url.toString(), name: "[URL]");
-  log(response.request!.method.toString(), name: "[METHOD]");
-  log(response.request!.headers.toString(), name: "[HEADERS]");
-  log(response.statusCode.toString(), name: "[STATUS]");
+  log(response.request!.url.toString(), name: "URL");
+  log(response.request!.method.toString(), name: "METHOD");
+  log(response.request!.headers.toString(), name: "HEADERS");
+  log(response.statusCode.toString(), name: "STATUS");
   log(prettyBody, name: "[BODY]");
 }
